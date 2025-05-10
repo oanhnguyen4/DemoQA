@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class ElementsPage extends Page{
+	public By lblTextBox = By.xpath("//span[text() ='Text Box']");
 
 	public ElementsPage(WebDriver dr) {
 		super(dr);
@@ -13,7 +14,7 @@ public class ElementsPage extends Page{
 
 	public TextboxPage clickOnTextBox() {
 		
-		driver.findElement(By.xpath("//span[text() ='Text Box']")).click();
+		driver.findElement(lblTextBox).click();
 		return new TextboxPage(driver);
 	}
 
