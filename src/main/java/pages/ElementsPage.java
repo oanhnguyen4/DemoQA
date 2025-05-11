@@ -12,10 +12,10 @@ public class ElementsPage extends Page{
 		// TODO Auto-generated constructor stub
 	}
 
-	public TextboxPage clickOnTextBox() {
+	public TextBoxPage clickOnTextBox() {
 		
 		driver.findElement(lblTextBox).click();
-		return new TextboxPage(driver);
+		return new TextBoxPage(driver);
 	}
 
 }
