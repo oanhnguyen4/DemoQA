@@ -12,18 +12,20 @@ public class TestCase {
 	
 	@BeforeMethod
 	public void setUp() {
-		String url = "https://demoqa.com/";
+		
+		String urlWeb = "https://demoqa.com/";
+		
 		String browser = "chrome";
-		testBase.openWeb(browser, url);
-		testBase.sleepBase();
+		testBase.openWeb(browser, urlWeb);
+		
+//		testBase.sleepBase();
 	}
 	
-	@AfterMethod
-	public void tearDown() {
-		if (testBase.driver != null) {
-            testBase.driver.quit();  // Đóng browser và cleanup session
-        }
-		
-	}
-
+//    @AfterMethod
+//    public void tearDown() {
+//		if (testBase.webDriver != null) {
+//            testBase.webDriver.quit();  // Đóng browser và cleanup session
+//        }
+//		
+//	}
 }

@@ -43,7 +43,6 @@ public class TextBoxPage extends Page {
 		String actualValue = splittedStr[1].trim();
 		return actualValue;
 	
-	
 	}
 	
 	
