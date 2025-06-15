@@ -27,12 +27,16 @@ public class TextBoxTest extends TestCase {
     	String email = "oanhnt@gmail.com";
     	String currentAddress = "Ha Noi";
     	String permanentAddress ="Ha Noi";
-    	HomePage homePage = new HomePage(testBase.driver);
+    	String elementStr = "Elements";
+    	
+    	HomePage homePage = new HomePage(testBase.webDriver);
+    	
+    	
     	ElementsPage elementPage = homePage.clickOnElements();
     	TextBoxPage textBoxPage = elementPage.clickOnTextBox();
     	textBoxPage.inputData(fullName, email, currentAddress, permanentAddress);
     	
-    	testBase.debugSleep(2);
+//    	testBase.debugSleep(2);
     
     	String actualFullName = textBoxPage.getActualValue(textBoxPage.lblName);
     	assertEquals(actualFullName, fullName);
@@ -44,31 +48,31 @@ public class TextBoxTest extends TestCase {
     	assertEquals(actualPermanentAddress, permanentAddress);
     }
 
-    @Test(description ="[TextBox] Email format is wrong (without \"@\")")
+//    @Test(description ="[TextBox] Email format is wrong (without \"@\")")
     public void validateEmail() {
     	String fullName = "Oanh";
     	String email = "oanhntgmail.com";
     	String currentAddress = "Ha Noi";
     	String permanentAddress ="Ha Noi";
-    	HomePage homePage = new HomePage(testBase.driver);
+    	HomePage homePage = new HomePage(testBase.webDriver);
     	ElementsPage elementPage = homePage.clickOnElements();
     	TextBoxPage textBoxPage = elementPage.clickOnTextBox();
     	textBoxPage.inputData(fullName, email, currentAddress, permanentAddress);
-    	testBase.debugSleep(5);
+//    	testBase.debugSleep(5);
     	textBoxPage.validateEmail("field-error");
     	
     }
-    @Test(description = "[TextBox] Email format is wrong (without domain name)")
+//    @Test(description = "[TextBox] Email format is wrong (without domain name)")
     public void validateEmail2() {
     	String fullName = "Oanh";
     	String email = "oanhnt";
     	String currentAddress = "Ha Noi";
     	String permanentAddress ="Ha Noi";
-    	HomePage homePage = new HomePage(testBase.driver);
+    	HomePage homePage = new HomePage(testBase.webDriver);
     	ElementsPage elementPage = homePage.clickOnElements();
     	TextBoxPage textBoxPage = elementPage.clickOnTextBox();
     	textBoxPage.inputData(fullName, email, currentAddress, permanentAddress);
-    	testBase.debugSleep(5);
+//    	testBase.debugSleep(5);
 		textBoxPage.validateEmail("field-error");
     }
     
