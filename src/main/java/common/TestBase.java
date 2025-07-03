@@ -42,14 +42,14 @@ public class TestBase {
 		webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
-	public void debugSleep(int second_ts) {
-		try {
-			Thread.sleep(second_ts * 1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+//	public void debugSleep(int second_ts) {
+//		try {
+//			Thread.sleep(second_ts * 1000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 	
 	public void scrollHomePage(By locator) {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;

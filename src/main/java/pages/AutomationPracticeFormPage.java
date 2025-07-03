@@ -40,16 +40,16 @@ public class AutomationPracticeFormPage extends Page{
 		driver.findElement(txtLastName).sendKeys(st.getLastName());
 		driver.findElement(txtEmail).sendKeys(st.getEmail());
 //		driver.findElement(testBase.getXpathByParam(rdGender, st.gender())).click();
-		base.clickOnRadioButton(rdGender, rdGender);
+		base.clickOnRadioButton(rdGender, st.getGender());
 		
 		driver.findElement(txtMobile).sendKeys(st.getMobile());
 		driver.findElement(txtDateOfBirth).click();
 		inputDateOfBirth(st.getDateOfBirth());
 		inputSubject(st.getSubjects());
 		selectHobbies(st.getHobbies());
+		driver.findElement(txtPicture).sendKeys(st.getPicture());
 		driver.findElement(txtSubjects).sendKeys(st.getSubjects());
 		
-		driver.findElement(txtPicture).sendKeys(st.getPicture());
 		driver.findElement(txtCurrentAddress).sendKeys(st.getCurrentAddress());
 		return new ThankForSubmitting(driver);
 		

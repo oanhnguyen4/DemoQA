@@ -1,17 +1,17 @@
 package tests.entities;
 
 public class StudentRegistrationForm {
-	  String firstName ;
-	  String lastName ;
-	  String email ;
-	  String gender ;
-	  String mobile ;
-	  String dateOfBirth ;
-	  String subjects ;
-	  String hobbies ;
-	  String picture ;
-	  String currentAddress;
-	  String stateAndCity;
+	  public String firstName ;
+	  public String lastName ;
+	  public String email ;
+	  public String gender ;
+	  public String mobile ;
+	  public String dateOfBirth ;
+	  public String subjects ;
+	  public String hobbies ;
+	  public String picture ;
+	  public String currentAddress;
+	  public String stateAndCity;
 	public String setPicture;
 	public String state;
 	public String city;
