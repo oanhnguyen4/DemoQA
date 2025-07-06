@@ -85,6 +85,10 @@ public class TestBase {
 		By fieldLocator = getXpathByParam(xpath, fieldName);
 		return webDriver.findElement(fieldLocator).getText();
 	}
+	
+	public void inputText(By locator, CharSequence... text) {
+		webDriver.findElement(locator).sendKeys(text);
+	}
 
 	
 

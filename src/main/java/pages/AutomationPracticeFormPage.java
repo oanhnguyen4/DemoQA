@@ -36,21 +36,30 @@ public class AutomationPracticeFormPage extends Page{
 	}
 
 	public ThankForSubmitting inputData(StudentRegistrationForm st) {
-		driver.findElement(txtFirstName).sendKeys(st.getFirstName());
-		driver.findElement(txtLastName).sendKeys(st.getLastName());
-		driver.findElement(txtEmail).sendKeys(st.getEmail());
+		driver.findElement(txtFirstName).sendKeys(st.firstName);
+		driver.findElement(txtLastName).sendKeys(st.lastName);
+		driver.findElement(txtEmail).sendKeys(st.email);
 //		driver.findElement(testBase.getXpathByParam(rdGender, st.gender())).click();
-		base.clickOnRadioButton(rdGender, st.getGender());
+		base.clickOnRadioButton(rdGender, st.gender);
 		
-		driver.findElement(txtMobile).sendKeys(st.getMobile());
+		driver.findElement(txtMobile).sendKeys(st.mobile);
 		driver.findElement(txtDateOfBirth).click();
-		inputDateOfBirth(st.getDateOfBirth());
-		inputSubject(st.getSubjects());
-		selectHobbies(st.getHobbies());
-		driver.findElement(txtPicture).sendKeys(st.getPicture());
-		driver.findElement(txtSubjects).sendKeys(st.getSubjects());
+		inputDateOfBirth(st.dateOfBirth);
+		inputSubject(st.subjects);
+		selectHobbies(st.hobbies);
+//		driver.findElement(txtPicture).sendKeys(st.getPicture());
+		base.inputText(txtPicture, st.picture);
+//		driver.findElement(txtSubjects).sendKeys(st.getSubjects());
 		
-		driver.findElement(txtCurrentAddress).sendKeys(st.getCurrentAddress());
+		driver.findElement(txtCurrentAddress).sendKeys(st.currentAddress);
+		driver.findElement(cbState).click();
+		driver.findElement(cbStateInput).sendKeys(st.state);
+		driver.findElement(cbStateInput).sendKeys(Keys.ENTER);
+		
+		driver.findElement(cbCity).click();
+		driver.findElement(cbCityInput).sendKeys(st.city);
+		driver.findElement(cbCityInput).sendKeys(Keys.ENTER);
+		driver.findElement(btnSubmit).submit();
 		return new ThankForSubmitting(driver);
 		
 		

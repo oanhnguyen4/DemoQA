@@ -20,8 +20,8 @@ public class PracticeFormTest extends TestCase{
 		String fileName = "RegistrationData.xls";
 		String sheetName = "Sheet1";
 		String projectFolder = System.getProperty("user.dir");
-		String excelFile = projectFolder + "\\testcase\\testdata\\" + fileName;
-		String[][] registrationData = utils.getTableObject(excelFile, sheetName);
+//		String excelFile = projectFolder + "\\testcase\\testdata\\" + fileName;
+		String[][] registrationData = utils.getTableObject(fileName, sheetName);
 
     	StudentRegistrationForm studentRegistrationForm = new StudentRegistrationForm();
 		
@@ -44,8 +44,9 @@ public class PracticeFormTest extends TestCase{
 //		studentRegistrationForm.setHobbies("Sports, Reading, Music");
 		studentRegistrationForm.hobbies=registrationData[0][7];
 //		studentRegistrationForm.setPicture = projectFolder + "\\testcase\\hoa.jpg";
-		studentRegistrationForm.setPicture=registrationData[0][8];
-//		
+//		studentRegistrationForm.setPicture=projectFolder + "\\testcase\\testdata\\" + registrationData[0][8];
+		studentRegistrationForm.picture= registrationData[0][8];
+        System.out.println( registrationData[0][8]);
 //		studentRegistrationForm.setCurrentAddress("Ha Noi");
 		studentRegistrationForm.currentAddress=registrationData[0][9];
 //		studentRegistrationForm.state="NCR";
@@ -54,11 +55,10 @@ public class PracticeFormTest extends TestCase{
 		studentRegistrationForm.city=registrationData[0][11];
 		
 		AutomationPracticeFormPage automationPracticeFormPage= new AutomationPracticeFormPage(testBase.webDriver);
-		automationPracticeFormPage.inputData(studentRegistrationForm);
 		
         ThankForSubmitting thanksForSubmitting= automationPracticeFormPage.inputData(studentRegistrationForm);
 		
-		String expectedStudentName = studentRegistrationForm.getFirstName() + " " + studentRegistrationForm.getLastName();
+		String expectedStudentName = studentRegistrationForm.firstName + " " + studentRegistrationForm.lastName;
 		String actualStudentName = thanksForSubmitting.base.getTextByLocator(thanksForSubmitting.valueXpath, "Student Name");
 		assertEquals(expectedStudentName, actualStudentName);
 		   

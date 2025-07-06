@@ -2,28 +2,35 @@ package common;
 
 import java.io.FileInputStream;
 
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+import jxl.Sheet;
+import jxl.Workbook;
 
 import java.io.File;
 
 public class Utils {
 	public String[][] getTableObject(String fileName, String sheetName){
 		String[][] dataTable = null;
-		String excelFile = System.getProperty("user.dir") + "\\testcase\\testdata" + fileName ;
+		String xlFilePath = System.getProperty("user.dir") + "\\testcase\\testdata\\" + fileName ;
+		int ci, cj;
 		try {
-			FileInputStream file = new FileInputStream(new File(excelFile));
-			Workbook workbook = WorkbookFactory.create(file);
-//			Sheet sheet = workbook.getSheet(sheetName);
-//			int maxRow = sheet.getLastRowNum();
-//			int maxColumn = sheet.get;
-			
+			Workbook workbook = Workbook.getWorkbook(new File(xlFilePath));
+			Sheet sheet = workbook.getSheet(sheetName);
+			int maxOfColumn = sheet.getColumns();
+			dataTable = new String[sheet.getRows() - 1][maxOfColumn];
+			ci = 0;
+
+			for (int i = 1; i < sheet.getRows(); i++, ci++) {
+				cj = 0;
+				for (int j = 0; j < maxOfColumn; j++, cj++) {
+					dataTable[ci][cj] = sheet.getCell(j, i).getContents();
+				}
+			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		return (dataTable);
+
 		
-		return dataTable;
 	}
 }
